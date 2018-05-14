@@ -7,18 +7,23 @@ class ItemModel(db.Model):
     timeOpen = db.Column(db.String(80))
     timeClose = db.Column(db.String(80))
 
-    def __init__(self,name, timeOpen, timeClose):
+    def __init__(self,id,name, timeOpen, timeClose):
+        self.id = id
         self.name = name
         self.timeOpen = timeOpen
         self.timeClose = timeClose
 
 
     def json(self):
-        return {'name' : self.name, 'time opens at' : self.timeOpen, 'time closes at' : self.timeClose}
+        return {'id': self.id,'name' : self.name, 'time opens at' : self.timeOpen, 'time closes at' : self.timeClose}
+
+    @classmethod
+    def find_by_id(cls, id):
+        return cls.query.filter_by(id = id).first() #SELECT * FROM WHERE name=name
 
     @classmethod
     def find_by_name(cls, name):
-        return cls.query.filter_by(name = name).first() #SELECT * FROM WHERE name=name
+        return cls.query.filter_by(name = name).first()  # SELECT * FROM WHERE name=name
 
     def save_to_db(self):
         db.session.add(self)

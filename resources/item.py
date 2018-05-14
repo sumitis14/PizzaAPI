@@ -18,11 +18,11 @@ class Item(Resource):
                         )
 
     @jwt_required()
-    def get(self,name):
-        item = ItemModel.find_by_name(name)
+    def get(self,id):
+        item = ItemModel.find_by_id(id)
         if item:
             return item.json()
-        return {'mesaage' : 'item not found'}, 404
+        return {'message' : 'item not found'}, 404
 
 
     def post(self,name):
@@ -41,12 +41,14 @@ class Item(Resource):
         return item.json(), 201
 
 
-    def delete(self,name):
-        item = ItemModel.find_by_name(name)
+    def delete(self,id):
+        item = ItemModel.find_by_id(id)
         if item:
             item.delete_from_db()
+        else:
+            return {'message': 'No item in db now'}, 400
 
-        return {'message' : 'item deleted'}
+        return {'message' : 'item deleted'}, 200
 
     def put(self,name):
         data = Item.parser.parse_args()
