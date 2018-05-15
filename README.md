@@ -60,5 +60,3 @@ Use Post\put endpoint
 	    "timeClose" : 20
     }
 ```
-
-7. To post an item
