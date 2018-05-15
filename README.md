@@ -50,7 +50,7 @@ https://pizzapi.herokuapp.com/
 ```
 Use Get endpoint:
     -- type {{url}}/item/<id>
-![alt text](https://github.com/sumitis14/PizzaAPI/blob/master/GET.JPG)
+![get test](https://github.com/sumitis14/PizzaAPI/raw/master/GET.JPG)
 
 Use Post\put endpoint
     -- type {{url}}/item/<name of string>
