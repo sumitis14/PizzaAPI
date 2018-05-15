@@ -17,13 +17,6 @@ class Item(Resource):
                         help="This item needs time close"
                         )
 
-    @jwt_required()
-    def get(self,id):
-        item = ItemModel.find_by_id(id)
-        if item:
-            return item.json()
-        return {'message' : 'item not found'}, 404
-
 
     def post(self,name):
         if ItemModel.find_by_name(name):
@@ -33,7 +26,8 @@ class Item(Resource):
 
         #put data after filtering out
         data = Item.parser.parse_args()
-        item = ItemModel(name, **data)
+        id = ItemModel.find_by_name(name)
+        item = ItemModel(name, data['timeOpen'],data['timeClose'],id)
         try:
             item.save_to_db()
         except:
@@ -41,21 +35,22 @@ class Item(Resource):
         return item.json(), 201
 
 
-    def delete(self,id):
-        item = ItemModel.find_by_id(id)
+    def delete(self,name):
+        item = ItemModel.find_by_name(name)
         if item:
             item.delete_from_db()
         else:
-            return {'message': 'No item in db now'}, 400
+            return {'message': 'delete failed'}, 400
 
-        return {'message' : 'item deleted'}, 200
+        return {'message' : 'item deleted'}
 
     def put(self,name):
         data = Item.parser.parse_args()
         item = ItemModel.find_by_name(name)
+        id = ItemModel.find_by_name(name)
 
         if item is None:
-            item = ItemModel(name, **data)
+            item = ItemModel(name, data['timeOpen'],data['timeClose'],id)
         else:
             item.timeOpen = data['timeOpen']
             item.timeClose = data['timeClose']
@@ -64,6 +59,16 @@ class Item(Resource):
         return item.json()
 
 
+class ItemId(Resource):
+        @jwt_required()
+        def get(self,  id):
+            item = ItemModel.find_by_id(id)
+            if item:
+                return item.json()
+            return {'message': 'item not found'}, 404
+
+
 class ItemList(Resource):
     def get(self):
-        return {'items' : [item.json() for item in ItemModel.query.all()]}
+        return {'items': [item.json() for item in ItemModel.query.all()]}
+        # return  {'items': list(map(lambda  x: x.json(), ItemModel.query.all()))}
