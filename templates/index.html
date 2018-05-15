@@ -1,24 +1,100 @@
 <html>
 <head>
     <title>Pizza Home</title>
-<script type="text/javascript">
-	function httpGetAsync(theUrl, callback) {
-	    var xmlHttp = new XMLHttpRequest();
-	    xmlHttp.onreadystatechange = function() {
-	        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-	            callback(xmlHttp.responseText);
-	    }
-	    xmlHttp.open("GET", theUrl, true); // true for asynchronous
-	    xmlHttp.send(null);
-	}
-</script>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+    }
+    th {
+        text-align: left;
+    }
+    </style>
+
+    <script type="text/javascript">
+        function httpGetAsync(theUrl, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous
+            xmlHttp.send(null);
+        }
+    </script>
 </head>
+
 <body>
 <h1>Pizza API documentation</h1>
- 1. <a href="http://127.0.0.1:5000/items">Get all items</a>
-<div id="myElement">
-	Hello, world!
-</div>
+    <p><b>Action Steps</b>:</p>
+     1. <a href="http://127.0.0.1:5000/items">Get all items</a>
+
+    <p>
+
+    <p><b>API reference steps</b></p>
+        Backend in Python and Flask for API <br>
+    Test Steps for POSTMAN: <br>
+
+        <table style="width:100%">
+      <tr>
+        <th>/register</th>
+        <th>Enter following in /item/"string:name"</th>
+        <th>Output Sample from /items</th>
+      </tr>
+      <tr>
+        <td>
+            <pre><code>
+             {
+                "username"  :
+                "password"  :
+             }
+            </code></pre>
+        </td>
+
+        <td>
+            <pre><code>
+             {
+                "timeClose"  : Enter 13 for 13:00:00
+                "timeClose"  : Enter 20 for 13:00:00
+             }
+            </code></pre>
+        </td>
+
+        <td>
+            <pre><code>
+             {
+                  "id"       : 2,
+                "name"       : "ABC",
+                "timeClose"  : 13:00:00,
+                "timeClose"  : 20:00:00
+             }
+            </code></pre>
+        </td>
+
+      </tr>
+    </table>
+
+
+
+    </p>
+
+
+<p><b>Tools used</b>:</p>
+1. Python 3.6.3 <br>
+2. Flask, Flask-RESTful, Flask SQLAlchemy <br>
+3. SQLite <br>
+4. Heroku to host the site <br>
+5. POSTMAN to test the API
+
+
+
+
+<p>Contact me at<br>
+	<a href = "mailto: sumit.cse.is@gmail.com">sumit.cse.is@gmail.com</a>
+</p>
 
 </body>
 </html>
