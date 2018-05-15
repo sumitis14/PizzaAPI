@@ -36,13 +36,11 @@ https://pizzapi.herokuapp.com/
 ```
 3. Open Postman and manage environment variables.
 Following is an example
-![env test](https://github.com/sumitis14/PizzaAPI/blob/master/set%20environment.JPG)
-
 4. Declare endpoints to perform operation like below:
+
 ```
 end points
 ```
-![end text](https://github.com/sumitis14/PizzaAPI/raw/master/end.PNG)
 
 5. Set environment variable in endpoints.
 ```
@@ -51,11 +49,8 @@ end points
         a) Select Authorization
         b) JWT {{jwt_token}}
 ```
-![set test](https://github.com/sumitis14/PizzaAPI/raw/master/set%20environment%202.JPG)
 
 6. For GET and Post an item:
-
-![get test](https://github.com/sumitis14/PizzaAPI/raw/master/GET.JPG)
 ```
 Use Get endpoint:
     -- type {{url}}/item/<id>
