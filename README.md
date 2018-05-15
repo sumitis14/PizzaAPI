@@ -38,7 +38,8 @@ https://pizzapi.herokuapp.com/
 Following is an example
 ![env test](https://github.com/sumitis14/PizzaAPI/blob/master/set%20environment.JPG)
 
-4. Declare endpoints to perform operation
+4. Declare endpoints to perform operation like below:
+![test](https://github.com/sumitis14/PizzaAPI/raw/master/env.PNG)
 
 5. Set environment variable in endpoints.
 ```
