@@ -1,16 +1,16 @@
-import uuid
+import datetime
+import time
 from db import db
 class ItemModel(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(80))
-    timeOpen = db.Column(db.String(80))
-    timeClose = db.Column(db.String(80))
+    timeOpen = db.Column(db.Integer)
+    timeClose = db.Column(db.Integer)
 
 
     def __init__(self, name, timeOpen, timeClose,eid=0):
-
         self.name = name
         self.timeOpen = timeOpen
         self.timeClose = timeClose
@@ -18,10 +18,13 @@ class ItemModel(db.Model):
             self.id = id
         else:
             self.id = eid
-        # self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
-        return {'id': self.id, 'name' : self.name, 'time opens at' : self.timeOpen, 'time closes at' : self.timeClose}
+        self.timeOpen *=3600
+        self.timeClose *=3600
+        return {'id': self.id, 'name' : self.name,
+                'time opens at' : time.strftime("%H:%M:%S", time.gmtime(self.timeOpen)),
+                'time closes at' : time.strftime("%H:%M:%S", time.gmtime(self.timeClose))}
 
     @classmethod
     def find_by_name(cls, name):
