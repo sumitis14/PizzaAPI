@@ -39,6 +39,9 @@ Following is an example
 ![env test](https://github.com/sumitis14/PizzaAPI/blob/master/set%20environment.JPG)
 
 4. Declare endpoints to perform operation like below:
+```
+end points
+```
 ![end text](https://github.com/sumitis14/PizzaAPI/raw/master/end.PNG)
 
 5. Set environment variable in endpoints.
