@@ -46,11 +46,12 @@ https://pizzapi.herokuapp.com/
         b) JWT {{jwt_token}}
 ```
 
-6. For GET nd Post an item:
+6. For GET and Post an item:
+
+![get test](https://github.com/sumitis14/PizzaAPI/raw/master/GET.JPG)
 ```
 Use Get endpoint:
     -- type {{url}}/item/<id>
-![get test](https://github.com/sumitis14/PizzaAPI/raw/master/GET.JPG)
 
 Use Post\put endpoint
     -- type {{url}}/item/<name of string>
