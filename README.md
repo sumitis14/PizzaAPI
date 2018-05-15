@@ -40,16 +40,17 @@ https://pizzapi.herokuapp.com/
 
 5. Set environment variable in endpoints.
 ```
-{{url}} in GET/POST/DELETE/ endpoints
-{{jwt_token}} in Headers:
-a) Select Authorization
-b) JWT {{jwt_token}}
+    {{url}} in GET/POST/DELETE/ endpoints
+    {{jwt_token}} in Headers:
+        a) Select Authorization
+        b) JWT {{jwt_token}}
 ```
 
 6. For GET nd Post an item:
 ```
 Use Get endpoint:
     -- type {{url}}/item/<id>
+![alt text](https://github.com/sumitis14/PizzaAPI/blob/master/GET.JPG)
 
 Use Post\put endpoint
     -- type {{url}}/item/<name of string>
