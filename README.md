@@ -13,7 +13,7 @@ Flask-SQLAlchemy
 ## Description
 Basic Pizza API
 
-##Tools used:
+## Tools used:
 1. Python 3.6.3
 2. Flask, Flask-RESTful, Flask SQLAlchemy
 3. SQLite
