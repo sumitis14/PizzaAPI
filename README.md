@@ -69,3 +69,17 @@ Use Post\put endpoint
     }
 ```
 ![get test](https://github.com/sumitis14/PizzaAPI/raw/master/img/GET.JPG)
+
+7. Authorization for POST and DELETE
+```
+- To delete an item by name. User need to register first.
+- Then create POST /auth endpoint. POST following sample code to authenticate a registered user:
+    {
+        "username" : "username_with_which_you_registered",
+        "password" : "password_with_which_you_registered"
+    }
+- After doing auth successfully. JWT token will be generated. Use that for deleting an item:
+    --Select Authorization as Key in header, and Add JWT {{JWT}} in value. 
+```
+
+End of document.
