@@ -19,12 +19,12 @@ app.secret_key = '1ab2'
 api = Api(app)
 
 '''
-Remove this when deploying in Heroku
-'''
+Add this when not deploying in Heroku
+
 @app.before_first_request
 def create_tables():
     db.create_all()
-
+'''
 
 jwt = JWT(app, authenticate, identity) #creates /auth
 
